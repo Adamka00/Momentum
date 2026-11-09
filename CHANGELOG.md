@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — 1.1.0-dev (not Minecraft-verified)
+
+- Added backward-compatible, validated configuration models for Slide, Wall Jump, Long Jump and future HUD controls.
+- Connected Slide, Wall Jump and Long Jump to bounded server request processing, collision queries, replacement impulses, lifecycle sessions and authoritative snapshots.
+- Added native settings GUI, independent O keybind, live singleplayer application, read-only remote gameplay settings, optional Mod Menu 21 adapter, localized controls/tooltips and configurable HUD. All Minecraft-dependent code remains uncompiled in this cloud instance.
+- Added a dependency-light Java 25 core test runner. See `docs/MOVEMENT-UPDATE-PROGRESS.md` for current evidence and network blockers. This is not a completed Movement Update release; see the documented slide-jump fallback limitation and local verification requirements.
+
 ## 1.0.0 — 2026-11-09
 
 - Added a unified, server-authoritative double/triple jump system with configurable strengths and confirmed landings.

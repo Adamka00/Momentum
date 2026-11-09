@@ -14,7 +14,7 @@ public final class MovementEffects {
         var entity = client.level.getEntity(payload.entityId());
         if (entity == null) return;
         var particle = payload.kind() == 3 ? ParticleTypes.ELECTRIC_SPARK : ParticleTypes.CLOUD;
-        int count = payload.kind() == 5 ? 2 : 6;
+        int count = (payload.kind() == 5 || payload.kind() == 9) ? 2 : 6;
         if (payload.particles() && preferences.particles) {
             var random = entity.getRandom();
             for (int i = 0; i < count; i++) {
@@ -23,7 +23,7 @@ public final class MovementEffects {
             }
         }
         if (payload.sounds() && preferences.sounds) {
-            var sound = payload.kind() == 4 ? SoundEvents.BREEZE_SHOOT
+            var sound = payload.kind() == 6 ? SoundEvents.PHANTOM_FLAP : payload.kind() == 4 ? SoundEvents.BREEZE_SHOOT
                 : payload.kind() == 3 ? SoundEvents.PHANTOM_FLAP : SoundEvents.BREEZE_JUMP;
             client.level.playLocalSound(entity.getX(), entity.getY(), entity.getZ(), sound, SoundSource.PLAYERS, 0.25f, 1.3f, false);
         }

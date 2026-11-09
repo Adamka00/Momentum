@@ -4,6 +4,10 @@ These are procedures, **not claims of successful manual testing**. Record the ac
 
 Use Minecraft 26.3, Java 25, Loader 0.20.1+, API 0.166.0+26.3, and Momentum 1.0.0 on both client A and client B. Use a separate dedicated server with the same mods. Back up any valuable worlds.
 
+## Movement Update development checks
+
+See [local 1.1.0-dev verification](LOCAL-VERIFICATION.md) for new controls, dedicated-server read-only settings, two-client checks and known incomplete behavior. These checks have not been executed in the cloud. Use matching 1.1.0-dev builds on server and both clients when testing this branch; the original 1.0.0 checklist below is retained as regression guidance.
+
 ## Singleplayer and controls
 
 - [ ] Vanilla first jump is unchanged. Holding Space performs no extra air jumps.

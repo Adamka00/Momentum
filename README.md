@@ -1,4 +1,6 @@
-# Momentum 1.0.0
+# Momentum 1.1.0-dev — unverified development branch
+
+Development branch: [Momentum 1.1.0 progress and current limitations](docs/MOVEMENT-UPDATE-PROGRESS.md). Gameplay integration, native settings GUI, localization and HUD changes are implemented in source. Only dependency-light core code has compiled here; Minecraft integration is not yet verified. This is not a release. See [macOS verification instructions](docs/LOCAL-VERIFICATION.md).
 
 Momentum adds extra jumps, gradual sprint acceleration, and a directional dash to **Minecraft Java Edition 26.3 with Fabric**. It supports Survival, Adventure, and grounded Creative players through the same server-authoritative movement system. Creative flight, spectator mode, elytra, swimming, climbing, and riding retain their normal controls.
 
@@ -16,7 +18,7 @@ The project includes production sources, a Gradle wrapper, JSON defaults, Englis
 | Gradle wrapper | 9.8.2 |
 | Names/mappings | Unobfuscated Mojang names; no mapping dependency |
 
-Install Java 25, Fabric Loader for **26.3**, and the matching Fabric API. Place `momentum-1.0.0.jar` and Fabric API in the Minecraft instance's `mods/` directory. Install both mods on **every client and the dedicated server**. A client missing Momentum's networking channels is disconnected with an explanatory message. A vanilla server does not grant Momentum abilities.
+Install Java 25, Fabric Loader for **26.3**, and the matching Fabric API. Place `momentum-1.1.0-dev.jar` and Fabric API in the Minecraft instance's `mods/` directory. Install both mods on **every client and the dedicated server**. A client missing Momentum's networking channels is disconnected with an explanatory message. A vanilla server does not grant Momentum abilities.
 
 For singleplayer and LAN, install on the host and each joining client. The integrated server enforces the host's configuration. Version numbers and official sources are documented in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md). Other Minecraft versions are not supported by this build.
 
@@ -29,6 +31,10 @@ For singleplayer and LAN, install on the host and each joining client. The integ
 | Release, then press Space again | Third jump, if enabled |
 | Sprint and move forward continuously | Gradual speed boost after 20 ticks |
 | R | Dash toward movement input; forward when stationary |
+| Sprint + crouch | Slide, using vanilla crouch collision dimensions |
+| Space while airborne near a wall | Wall jump before an ordinary air jump |
+| Sprint + G | Long jump |
+| O | Native Momentum settings |
 
 Rebind Dash in **Options → Controls → Key Binds → Momentum**. Holding a key cannot repeatedly execute an ability. Auto-jump does not synthesize extra air jumps. Triple jump includes double jump and uses the same counter. Walking off a ledge consumes the ordinary ground jump, leaving two air jumps in the default mode.
 
@@ -44,7 +50,7 @@ The small lower-left HUD displays available **air** jumps, dash cooldown, and ac
 
 ## Configuration
 
-`config/momentum.json` is created on first launch. [config/momentum.json](config/momentum.json) contains the complete defaults. Edit the file with the game/server stopped, then restart. There is no live reload or configuration screen.
+`config/momentum.json` is created on first launch. [config/momentum.json](config/momentum.json) contains the complete defaults. Edit the file with the game/server stopped, then restart. The O key opens the native settings screen. Integrated-server gameplay changes are applied on its server thread after a successful save. Dedicated-server gameplay controls are read-only; local HUD and cosmetic settings remain editable. The implementation still needs full compilation and runtime validation.
 
 Malformed JSON is logged, copied to `momentum.json.invalid`, and replaced with defaults where the filesystem permits. Missing sections receive defaults. Invalid numbers are clamped; nonfinite values use defaults. In-memory validated values are authoritative; ordinary valid files are not rewritten just to normalize ranges.
 
@@ -103,7 +109,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 25)
 ./gradlew runServer --args="nogui"
 ```
 
-The wrapper verifies the Gradle distribution SHA-256. Build output is `build/libs/momentum-1.0.0.jar`; `momentum-1.0.0-sources.jar` contains source code. Server GameTests are also part of `build`. The separate test mod is excluded from the production JAR. On Windows use `gradlew.bat` with Java 25.
+The wrapper verifies the Gradle distribution SHA-256. Build output is `build/libs/momentum-1.1.0-dev.jar`; `momentum-1.1.0-dev-sources.jar` contains source code. Server GameTests are also part of `build`. The separate test mod is excluded from the production JAR. On Windows use `gradlew.bat` with Java 25.
 
 The ordinary dedicated run directory is `run/server/`. Review the [Minecraft EULA](https://aka.ms/MinecraftEULA) and set `eula=true` in that directory's generated `eula.txt` if you accept it. Normal server runs do not automatically accept it. GameTest servers do not require a normal dedicated-world EULA file. Client tests run with:
 

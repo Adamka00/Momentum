@@ -1,5 +1,7 @@
 # Momentum 1.0.0 verification
 
+**Current development branch:** new core-only checks passed 45 tests (28 original + 17 added), with zero failures/skips. The full Gradle build is blocked at Fabric plugin resolution; all three required Gradle commands failed before compilation, and no new Minecraft/client/server checks ran. New gameplay, GUI, HUD and Mod Menu code is implemented but uncompiled. See [1.1.0 progress](docs/MOVEMENT-UPDATE-PROGRESS.md). The original 1.0.0 report below records earlier validation, not validation of this branch's changes.
+
 Executed on 2026-11-09 using Minecraft 26.3, Loader 0.20.1, API 0.166.0+26.3,
 Loom 1.19.4, Gradle 9.8.2, and Temurin Java 25.0.5+8 on Linux x86_64.
 Official dependency evidence is in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md).

@@ -4,12 +4,29 @@
   "version": "${version}",
   "name": "Momentum",
   "description": "Server-authoritative extra jumps, sprint acceleration and directional dash.",
-  "authors": ["adamka00"],
+  "authors": [
+    "adamka00"
+  ],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["hu.adamka00.momentum.MomentumMod"],
-    "client": ["hu.adamka00.momentum.MomentumClient"]
+    "main": [
+      "hu.adamka00.momentum.MomentumMod"
+    ],
+    "client": [
+      "hu.adamka00.momentum.MomentumClient"
+    ],
+    "modmenu": [
+      "hu.adamka00.momentum.gui.MomentumModMenu"
+    ]
   },
-  "depends": { "fabricloader": ">=0.20.1", "minecraft": "26.3", "java": ">=25", "fabric-api": ">=0.166.0" }
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.166.0"
+  },
+  "suggests": {
+    "modmenu": ">=21.0.0 <22.0.0"
+  }
 }

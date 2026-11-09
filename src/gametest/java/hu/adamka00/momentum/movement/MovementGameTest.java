@@ -81,9 +81,26 @@ public final class MovementGameTest {
         h.succeed();
     }
 
+    @GameTest public void wallQueriesExcludeFloorsAndCeilings(GameTestHelper h) {
+        var p = player(h);
+        h.setBlock(2, 0, 2, Blocks.STONE); h.setBlock(2, 4, 2, Blocks.STONE);
+        p.setPos(h.absoluteVec(new Vec3(2.5, 1, 2.5)));
+        h.assertTrue(MovementManager.detectWall(p, 0.15) == null, "Floor and ceiling are not walls");
+        h.setBlock(3, 1, 2, Blocks.STONE); h.setBlock(3, 2, 2, Blocks.STONE);
+        p.setPos(h.absoluteVec(new Vec3(2.65, 1, 2.5)));
+        h.assertTrue(MovementManager.detectWall(p, 0.15) == WallJumpState.Wall.EAST, "East collision shape detected");
+        p.setPos(h.absoluteVec(new Vec3(2.4, 1, 2.5)));
+        h.assertTrue(MovementManager.detectWall(p, 0.15) == null, "Distant solid wall rejected");
+        h.succeed();
+    }
+
     @GameTest public void typedPayloadsRoundTrip(GameTestHelper h) {
         var buffer = new RegistryFriendlyByteBuf(Unpooled.buffer(), h.getLevel().registryAccess());
         try {
+            var longJump = new LongJumpRequest(9, 10, true);
+            LongJumpRequest.CODEC.encode(buffer, longJump); h.assertTrue(longJump.equals(LongJumpRequest.CODEC.decode(buffer)), "Long jump codec");
+            var abilities = new AbilityStatePayload(9, 100, 2, 40, 12, 30);
+            AbilityStatePayload.CODEC.encode(buffer, abilities); h.assertTrue(abilities.equals(AbilityStatePayload.CODEC.decode(buffer)), "Ability state codec");
             var jump = new JumpRequest(9, 10, true, true);
             JumpRequest.CODEC.encode(buffer, jump); h.assertTrue(jump.equals(JumpRequest.CODEC.decode(buffer)), "Jump codec");
             var dash = new DashRequest(9, 11, -1, 1);

@@ -26,12 +26,59 @@
     "horizontalImpulse": 1.2,
     "verticalImpulse": 0.0,
     "cooldownTicks": 40,
-    "allowAirDash": true
+    "allowAirDash": true,
+    "particles": true,
+    "sounds": true
+  },
+  "slide": {
+    "enabled": true,
+    "cancelOnCrouchRelease": true,
+    "allowSlideJump": true,
+    "particles": true,
+    "sounds": true,
+    "durationTicks": 20,
+    "cooldownTicks": 30,
+    "initialSpeedMultiplier": 1.15,
+    "friction": 0.92,
+    "minimumActivationSpeed": 0.15,
+    "minimumContinueSpeed": 0.06
+  },
+  "wallJump": {
+    "enabled": true,
+    "resetAirJumpsOnWallJump": false,
+    "particles": true,
+    "sounds": true,
+    "verticalStrength": 0.42,
+    "horizontalStrength": 0.45,
+    "wallDetectionDistance": 0.15,
+    "maximumWallJumps": 2,
+    "sameWallCooldownTicks": 10
+  },
+  "longJump": {
+    "enabled": true,
+    "requireSprint": true,
+    "allowFromSlide": true,
+    "particles": true,
+    "sounds": true,
+    "horizontalStrength": 0.9,
+    "verticalStrength": 0.34,
+    "minimumActivationSpeed": 0.15,
+    "cooldownTicks": 40
   },
   "client": {
     "showHud": true,
     "particles": true,
     "sounds": true,
-    "cooldownFeedback": true
+    "cooldownFeedback": true,
+    "showAirJumps": true,
+    "showWallJumps": true,
+    "showDash": true,
+    "showLongJump": true,
+    "showSlide": true,
+    "showSprint": true,
+    "hudX": 0.0,
+    "hudY": 1.0,
+    "hudScale": 1.0,
+    "hudOpacity": 1.0
   }
 }

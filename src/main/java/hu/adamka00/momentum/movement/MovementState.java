@@ -61,6 +61,15 @@ public final class MovementState {
         return next;
     }
 
+    /** Records a server-accepted ground/long/wall impulse without replenishing air jumps. */
+    public void takeoff(long tick, boolean resetAirJumps) {
+        usedJumps = resetAirJumps ? 1 : Math.max(1, usedJumps);
+        lastJumpTick = tick;
+        awaitingSeparation = true;
+        grounded = false;
+        groundTicks = 0;
+    }
+
     /** Bounds processing and outgoing acknowledgements even for malformed clients. */
     public boolean admitRequest(long tick) {
         if (rateTick != tick) { rateTick = tick; requestsThisTick = 0; }
