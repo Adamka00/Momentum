@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "momentum",
+  "version": "${version}",
+  "name": "Momentum",
+  "description": "Server-authoritative extra jumps, sprint acceleration and directional dash.",
+  "authors": ["adamka00"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["hu.adamka00.momentum.MomentumMod"],
+    "client": ["hu.adamka00.momentum.MomentumClient"]
+  },
+  "depends": { "fabricloader": ">=0.20.1", "minecraft": "26.3", "java": ">=25", "fabric-api": ">=0.166.0" }
+}

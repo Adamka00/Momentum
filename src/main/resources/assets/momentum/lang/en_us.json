@@ -1,0 +1,10 @@
+{
+  "key.category.momentum.movement": "Momentum",
+  "key.momentum.dash": "Dash",
+  "hud.momentum.jumps": "Air jumps: %s",
+  "hud.momentum.dash": "Dash: %s",
+  "hud.momentum.sprint": "Sprint: ×%s",
+  "hud.momentum.ready": "Ready",
+  "hud.momentum.disabled": "Disabled",
+  "message.momentum.cooldown": "Dash recharging: %s ticks"
+}

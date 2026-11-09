@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "momentum-test",
+  "version": "1.0.0",
+  "name": "Momentum integration tests",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": ["hu.adamka00.momentum.movement.MovementGameTest"],
+    "fabric-client-gametest": ["hu.adamka00.momentum.MomentumClientGameTest"]
+  },
+  "depends": { "momentum": "*", "fabric-gametest-api-v1": "*" }
+}

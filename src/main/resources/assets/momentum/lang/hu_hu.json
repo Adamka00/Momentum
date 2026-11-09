@@ -1,0 +1,10 @@
+{
+  "key.category.momentum.movement": "Momentum",
+  "key.momentum.dash": "Kitörés",
+  "hud.momentum.jumps": "Légi ugrások: %s",
+  "hud.momentum.dash": "Kitörés: %s",
+  "hud.momentum.sprint": "Sprint: ×%s",
+  "hud.momentum.ready": "Kész",
+  "hud.momentum.disabled": "Kikapcsolva",
+  "message.momentum.cooldown": "Kitörés újratöltése: %s tick"
+}

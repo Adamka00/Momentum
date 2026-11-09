@@ -1,0 +1,37 @@
+{
+  "general": {
+    "doubleJump": true,
+    "tripleJump": true,
+    "sprintBoost": true,
+    "dash": true,
+    "particles": true,
+    "sounds": true,
+    "debugLogging": false
+  },
+  "jump": {
+    "maximumTotalJumps": 3,
+    "secondStrength": 0.42,
+    "thirdStrength": 0.46,
+    "allowInCreative": true,
+    "landingConfirmationTicks": 2
+  },
+  "sprint": {
+    "activationDelayTicks": 20,
+    "accelerationTicks": 60,
+    "maximumMultiplier": 1.35,
+    "decelerationPerTick": 0.025,
+    "particles": false
+  },
+  "dash": {
+    "horizontalImpulse": 1.2,
+    "verticalImpulse": 0.0,
+    "cooldownTicks": 40,
+    "allowAirDash": true
+  },
+  "client": {
+    "showHud": true,
+    "particles": true,
+    "sounds": true,
+    "cooldownFeedback": true
+  }
+}
